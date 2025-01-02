@@ -1,1 +1,27 @@
+Day 1:
+1. 661.Image Smoother(easy)
+      class Solution {
+    public int[][] imageSmoother(int[][] img) {
+        int m = img.length, n = img[0].length;
+        int[][] result = new int[m][n];
+        int[] directions = {-1, 0, 1};
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                int sum = 0, count = 0;
+                for (int dx : directions) {
+                    for (int dy : directions) {
+                        int x = i + dx, y = j + dy;
+                        if (x >= 0 && x < m && y >= 0 && y < n) {
+                            sum += img[x][y];
+                            count++;
+                        }
+                    }
+                }
+                result[i][j] = sum / count; 
+            }
+        }
+        return result;
+    }
+}
 
+      
